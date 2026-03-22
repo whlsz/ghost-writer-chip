@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --chip-red: #C11230;
+  --chip-gold: #D4AF37;
+  --chip-dark: #0A0A0A;
+}
+
+body {
+  background: #0A0A0A;
+  color: #F9FAFB;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Screen crack animation */
+@keyframes crack-in {
+  0% { opacity: 0; transform: scale(0.5) rotate(-5deg); }
+  60% { transform: scale(1.05) rotate(1deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(193, 18, 48, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(193, 18, 48, 0.7); }
+}
+
+.crack-in { animation: crack-in 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+.float { animation: float 4s ease-in-out infinite; }
+.glow-pulse { animation: glow-pulse 2s ease-in-out infinite; }
+
+/* Screen shatter overlay */
+.shatter-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Cpath d='M200,150 L80,20 L160,100 L40,80 L180,130 L60,200 L170,160 L100,280 L200,150' stroke='white' stroke-width='1' fill='none' opacity='0.15'/%3E%3Cpath d='M200,150 L320,20 L240,100 L360,80 L220,130 L340,200 L230,160 L300,280 L200,150' stroke='white' stroke-width='1' fill='none' opacity='0.15'/%3E%3C/svg%3E");
+  background-size: cover;
+}
